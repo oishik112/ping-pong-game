@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./Assets/mat.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+#welcomeScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#ball {
+  width: 20px;
+  height: 20px;
+  background-image: url('./Assets/Ball.png');
+  background-size: cover;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: pingpong 2s infinite alternate ease-in-out;
+}
+
+#rodOne,
+#rodTwo {
+  height: 20px;
+  width: 150px;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  bottom: 20px;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+}
+
+#rodOne {
+  background: linear-gradient(to right, #3399ff, #003399);
+  border-radius: 10px 10px 0 0;
+  top: 20px;
+}
+
+#rodOne::before {
+  background: linear-gradient(to right, #99ccff, #003399);
+}
+
+#rodTwo {
+  background: linear-gradient(to right, #66cc33, #009900);
+  border-radius: 0 0 10px 10px;
+  
+  bottom: 20px;
+}
+
+#rodTwo::before {
+  background: linear-gradient(to right, #99ff66, #009900);
+}
+
+#scorecard {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+#scorecard span {
+  display: block;
+  margin-bottom: 5px;
+}
+@keyframes pingpong {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
